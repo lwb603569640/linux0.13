@@ -1,0 +1,8 @@
+AS86	=as86
+LD86	=ld86
+
+AS	=i686-elf-gnu-as
+LD	=i686-elf-gnu-ld
+CC	=i686-elf-gnu-gcc
+CPP	=i686-elf-gnu-cpp
+OBJCOPY =i686-elf-gnu-objcopy
