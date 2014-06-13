@@ -1,0 +1,21 @@
+我所使用的编译器为交叉编译器，下面给出具体配置与生成交叉编译器。
+1.作为宿主机要先安装开发包，ubuntu为sudo apt-get install build-essential(gcc,binutils,make,bison,flex...)
+2.准备源代码，这里我们用到gcc，binutils，gmp，mpfr，mpc(gcc4.6.4, binutils2.24, gmp-6.0.0a, mpc-1.0.2, mpfr-3.1.2)
+3.配置编译选项:
+tar xf gcc-4.6.4.tar.gz;
+cd gcc-4.6.4;
+tar xf ../binutils-2.24.tar.gz;
+mv binutils-2.24 binutils;
+tar xf gmp-6.0.0a.tar.gz;
+tar xf mpc-1.0.2.tar.gz;
+tar xf mpfr-3.1.2.tar.gz;
+mv mpfr-3.1.2 mpfr;
+mv mpc-1.0.2 mpc;
+mv gmp-6.0.0a gmp;
+mkdir ../gcc-build;
+cd ../gcc-build;
+../gcc-4.6.4/configure --target=i686-elf-gnu --prefix=/opt/gcc464 --disable-shared --disable-multilib --disable-libquadmath --disable-decimal-float --disable-threads --disable-libmudflap --disable-libssp --disable-libgomp --disable-libatomic --enable-languages=c --enable-nls  --with-mpfr-include=$(pwd)/../gcc-4.6.4/mpfr/src --with-mpfr-lib=$(pwd)/mpfr/src/.libs --disable-libgcc  --disable-libstdc++-v3 --with-newlib;
+make;
+sudo make install;
+最后程序将被安装到目录/opt/gcc464下面，然后我们把/opt/gcc464/bin添加到PATH变量里(编辑vim ~/.bashrc在文件后添加PATH=$PATH:/opt/gcc464/bin)
+
