@@ -19,3 +19,6 @@ make;
 sudo make install;
 最后程序将被安装到目录/opt/gcc464下面，然后我们把/opt/gcc464/bin添加到PATH变量里(编辑vim ~/.bashrc在文件后添加PATH=$PATH:/opt/gcc464/bin)
 
+
+关于as86,ld86,ubuntu下请用sudo apt-get install bin86安装；CentOS下请用yum install dev86安装
+
